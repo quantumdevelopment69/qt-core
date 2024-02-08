@@ -72,7 +72,7 @@ QT = {
                 TriggerClientEvent('QBCore:Notify', src, data.message)
             end
         else
-            SendNotify(data)
+            SendNotify(src, data)
         end
     end
     
