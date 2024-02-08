@@ -62,7 +62,7 @@ QT = {
         elseif QBCore ~= nil then
             QBCore.Commands.Add(name, handler)
         end
-    end
+    end,
 
     Notification = function(src, data)
         if Config.UseFrameworkNotification then 
@@ -72,9 +72,9 @@ QT = {
                 TriggerClientEvent('QBCore:Notify', src, data.message)
             end
         else
-            SendNotify(data)
+            SendNotify(src, data)
         end
-    end
+    end,
     
 }
 
