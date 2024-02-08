@@ -1,4 +1,2 @@
 
-
-DEFINE FOR QT CORE 
--- # local QT = exports["qt-core"]:Utility()
+QT = exports["qt-core"]:Utility() -- # for using core functions you can define like this 
