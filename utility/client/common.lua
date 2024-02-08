@@ -38,12 +38,22 @@ QT = {
         return vector4(GetEntityCoords(entity), GetEntityHeading(entity))
     end,
 
-    CreateVeh = function(model, cb, ...)
-        if ESX ~= nil then
-            return ESX.Game.SpawnVehicle(model, cb, ...)
-        elseif QBCore ~= nil then
-            return QBCore.Functions.SpawnVehicle(model, cb, ...)
-        end
+    CreateVeh = function(data, cb)
+        local playerPed = PlayerPedId()
+        local vehiclehash = GetHashKey(data.model)
+        RequestModel(vehiclehash)
+        CreateThread(function()
+            local waiting = 0
+            while not HasModelLoaded(vehiclehash) do
+                waiting = waiting + 100
+                Wait(100)
+                if waiting > 5000 then
+                    break
+                end
+            end
+            local vehicle = CreateVehicle(vehiclehash, vector3(data.coords.x, data.coords.y, data.coords.z), data.coords.w, 1, 0)
+            cb(vehicle)
+        end)
     end,
     
 }
