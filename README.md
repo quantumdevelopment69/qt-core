@@ -9,7 +9,6 @@
     }, function(veh)
         TaskWarpPedIntoVehicle(PlayerPedId(), veh, -1)
     end)
-
     
     local pos = QT.GetPosition(entity) -- # geting player coords and heading position
     print(pos)
