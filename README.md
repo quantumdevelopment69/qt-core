@@ -10,18 +10,31 @@
         TaskWarpPedIntoVehicle(PlayerPedId(), veh, -1)
     end)
     
+ -- # get_entity_coords
+ 
     local pos = QT.GetPosition(entity) -- # geting player coords and heading position
     print(pos)
+    
+-- # usable item example
 
-    Qt.Item("item", function(source, item) -- # usable item example
+    Qt.Item("item", function(source, item) 
     	if item == nil then
     		print("This item does not exist")
     	else
     		TriggerClientEvent('your_event_here', source)
     	end
     end)
-
+    
+ -- CLOSEST VEHICLE 
+ 
     local closestveh = QT.CloseVeh(coords)
      if closestveh < 2.5 then 
-      -- # checking closest veh in that distance and if is there any it will return entity 
+       -- # your code here
      end
+     
+ -- COMMAND 
+ 
+     QT.Cmd("command_name", function()
+       -- # your code here
+     end)
+     
