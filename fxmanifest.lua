@@ -12,12 +12,14 @@ shared_scripts {
 }
 
 client_scripts {
+    'utility/client/convert/*.lua',
     'utility/client/*.lua',
     'cl_main.lua'
 }
 
 server_scripts {
     '@oxmysql/lib/MySQL.lua',
+    'utility/server/convert/*.lua',
     'utility/server/*.lua',
     'sv_main.lua'
 }
