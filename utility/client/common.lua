@@ -44,7 +44,7 @@ QT = {
         RequestModel(vehiclehash)
         CreateThread(function()
             local waiting = 0
-            while not HasModelLoaded(vehiclehash) do --# do not change nothing here
+            while not HasModelLoaded(vehiclehash) do
                 waiting = waiting + 100
                 Wait(100)
                 if waiting > 5000 then
@@ -55,6 +55,14 @@ QT = {
             cb(vehicle)
         end)
     end,
+
+    Cmd = function(name, handler, restricted)
+        if ESX ~= nil then
+            RegisterCommand(name, handler, restricted)
+        elseif QBCore ~= nil then
+            QBCore.Commands.Add(name, handler)
+        end
+    end
     
 }
 
