@@ -9,7 +9,7 @@ QT = exports["qt-core"]:Utility() -- # for using core functions you can define l
     end)
 
     
-    local pos = GetPosition(entity) -- # geting player coords and heading position
+    local pos = QT.GetPosition(entity) -- # geting player coords and heading position
     print(pos)
 
 
