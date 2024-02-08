@@ -32,7 +32,7 @@
        -- # your code here
      end
      
- -- COMMAND 
+ -- COMMANDS 
  
      QT.Cmd("command_name", function()
        -- # your code here
