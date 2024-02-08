@@ -37,12 +37,22 @@
      QT.Cmd("command_name", function()
        -- # your code here
      end)
+     
 -- # ZONE DISTANCE CHECK 
 
-    local inZone = ZoneCheck(coords, distance)
+    local inZone = QT.ZoneCheck(coords, distance)
      if inZone then 
        print("in_zone")
      else
        print("out_of_zone")
      end
+
+-- # NOTIFICATION 
+
+    QT.Notification({
+        title = '',
+        message = message,
+        type = type
+    })
+     
      
