@@ -21,3 +21,7 @@
     	end
     end)
 
+    local closestveh = QT.CloseVeh(coords)
+     if closestveh < 2.5 then 
+      -- # checking closest veh in that distance and if is there any it will return entity 
+     end
