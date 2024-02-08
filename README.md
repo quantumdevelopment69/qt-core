@@ -1,2 +1,2 @@
 
-QT = exports["qt-core"]:Utility() -- # for using core functions yo ucan define like this 
+QT = exports["qt-core"]:Utility() -- # for using core functions you can define like this 
