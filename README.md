@@ -25,16 +25,24 @@
     	end
     end)
     
- -- CLOSEST VEHICLE 
+ -- # CLOSEST VEHICLE 
  
     local closestveh = QT.CloseVeh(coords)
      if closestveh < 2.5 then 
        -- # your code here
      end
      
- -- COMMANDS 
+ -- # COMMANDS 
  
      QT.Cmd("command_name", function()
        -- # your code here
      end)
+-- # ZONE DISTANCE CHECK 
+
+    local inZone = ZoneCheck(coords, distance)
+     if inZone then 
+       print("in_zone")
+     else
+       print("out_of_zone")
+     end
      
