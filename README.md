@@ -39,7 +39,7 @@
      end)
 -- # ZONE DISTANCE CHECK 
 
-    local inZone = ZoneCheck(coords, distance)
+    local inZone = QT.ZoneCheck(coords, distance)
      if inZone then 
        print("in_zone")
      else
