@@ -7,6 +7,9 @@ QT = exports["qt-core"]:Utility() -- # for using core functions you can define l
     }, function(veh)
         TaskWarpPedIntoVehicle(PlayerPedId(), veh, -1)
     end)
+<<<<<<< HEAD
     
     local pos = GetPosition(entity) -- # geting player coords and heading position
     print(pos)
+=======
+>>>>>>> ee5d9291164a30242cdb0d978f17949ab41dca4e
