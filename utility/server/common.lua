@@ -197,6 +197,70 @@ QT = {
             SendNotify(src, data)
         end
     end,
+
+    CreateStash = function(id, label, slots, weight, owner)
+        if Config.Inventory == 'default' then
+          
+        else
+            QT.RegisterStash(id, label, slots, weight, owner)
+        end
+    end,
+
+    RegisterStash = function(id, label, slots, weight, owner)
+        if Config.Inventory == 'default' then
+           
+        elseif Config.Inventory == 'ox-inventory' then
+            exports['ox_inventory']:RegisterStash(id, label, slots, weight, owner)
+        elseif Config.Inventory == 'qs-inventory' then
+            exports['qs-inventory']:RegisterStash(source, "Stash_"..id, slots, weight) 
+        end
+    end,
     
+    GetOnline = function()
+        local players = {}
+        if ESX ~= nil then
+            local xPlayers = ESX.GetExtendedPlayers()
+            for _, xPlayer in pairs(xPlayers) do
+                table.insert(players, {
+                    source = Core.Player.GetSource(xPlayer.source),
+                    identifier = Core.Player.GetIdentifier(xPlayer.source),
+                    name = Core.Player.GetName(xPlayer.source),
+                    job = Core.Player.GetPlayerJob(xPlayer.source)
+                })
+            end
+        elseif QBCore ~= nil then
+            local xPlayers = QBCore.Functions.GetQBPlayers()
+            for _, xPlayer in pairs(xPlayers) do
+                table.insert(players, {
+                    source = Core.Player.GetSource(xPlayer.PlayerData.source),
+                    identifier = Core.Player.GetIdentifier(xPlayer.PlayerData.source),
+                    name = Core.Player.GetName(xPlayer.PlayerData.source),
+                    job = Core.Player.GetPlayerJob(xPlayer.PlayerData.source)
+                })
+            end
+        end
+        return players
+    end,
+
+    DeleteJob = function(name)
+        if ESX ~= nil then
+            if ESX.DoesJobExist(name, 0) then
+                ESX.DeleteJob(name)
+            end
+        elseif QBCore ~= nil then
+            if QBCore.Shared.Jobs[name] then
+                QBCore.Shared.Jobs[name] = nil
+            end
+        end
+    end,
+
+    CreateAccount = function(society, amount)
+        if ESX ~= nil then
+            exports['esx_addonaccount']:AddSharedAccount(society, amount)
+        elseif QBCore ~= nil then
+            exports["qb-core"]:CreateManagement(society.name)
+        end
+    end,
+
 }
 

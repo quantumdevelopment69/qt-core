@@ -75,6 +75,31 @@ QT = {
             SendNotify(src, data)
         end
     end,
+
+    OpenStash = function(id, label, slots, weight, owner)
+        if Config.Inventory == 'default' then
+            if ESX ~= nil then
+                -- no default stash
+                if Config.Debug == true then
+                    print('stash for default esx_addoninventory is not supported.')
+                end
+            elseif QBCore ~= nil then
+                TriggerServerEvent('inventory:server:OpenInventory', 'stash', id, {
+                    maxweight = weight,
+                    slots = slots
+                })
+                TriggerEvent('inventory:client:SetCurrentStash', id)
+            end
+        elseif Config.Inventory == 'ox-inventory' then
+            exports.ox_inventory:openInventory('stash', {id = id})
+        elseif Config.Inventory == 'qs-inventory' then
+            TriggerServerEvent('inventory:server:OpenInventory', 'stash', id, {
+                maxweight = weight,
+                slots = slots
+            })
+            TriggerEvent('inventory:client:SetCurrentStash', id)
+        end
+    end,
     
 }
 
