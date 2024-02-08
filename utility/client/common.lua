@@ -44,7 +44,7 @@ QT = {
         RequestModel(vehiclehash)
         CreateThread(function()
             local waiting = 0
-            while not HasModelLoaded(vehiclehash) do
+            while not HasModelLoaded(vehiclehash) do --# do not change nothing here
                 waiting = waiting + 100
                 Wait(100)
                 if waiting > 5000 then
