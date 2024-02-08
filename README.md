@@ -13,4 +13,11 @@
     local pos = QT.GetPosition(entity) -- # geting player coords and heading position
     print(pos)
 
+    Qt.Item("item", function(source, item)
+    	if item == nil then
+    		print("This item does not exist")
+    	else
+    		TriggerClientEvent('your event here', source)
+    	end
+    end)
 
