@@ -47,7 +47,7 @@
        print("out_of_zone")
      end
 
--- # NOTIFICATION 
+-- # NOTIFICATION (client/server)
 
     QT.Notification({
         title = '',
