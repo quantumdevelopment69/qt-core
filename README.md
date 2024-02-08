@@ -17,7 +17,7 @@
     	if item == nil then
     		print("This item does not exist")
     	else
-    		TriggerClientEvent('your event here', source)
+    		TriggerClientEvent('your_event_here', source)
     	end
     end)
 
