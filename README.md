@@ -13,7 +13,7 @@
     local pos = QT.GetPosition(entity) -- # geting player coords and heading position
     print(pos)
 
-    Qt.Item("item", function(source, item)
+    Qt.Item("item", function(source, item) -- # usable item example
     	if item == nil then
     		print("This item does not exist")
     	else
