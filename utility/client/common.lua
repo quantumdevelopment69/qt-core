@@ -73,7 +73,7 @@ QT = {
                 QBCore.Functions.Notify(data.message)
             end
         else
-            SendNotify(src, data)
+            SendNotify(data)
         end
     end,
 
