@@ -162,9 +162,6 @@ QT = {
         end
     end,
 
-    insert = function(t, v)
-        t[#t + 1] = v
-    end,
     
     IsValidTask = function(task)
         if task == "add" or task == "remove" then

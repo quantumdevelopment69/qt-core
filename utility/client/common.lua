@@ -56,6 +56,7 @@ QT = {
         end)
     end,
 
+
     Cmd = function(name, handler, restricted)
         if ESX ~= nil then
             RegisterCommand(name, handler, restricted)
@@ -64,12 +65,12 @@ QT = {
         end
     end,
 
-    Notification = function(src, data)
+    Notification = function(data)
         if Config.UseFrameworkNotification then 
             if ESX ~= nil then
-                TriggerClientEvent('esx:showNotification', src, data.message)
+                ESX.ShowNotification(data.message)
             elseif QBCore ~= nil then
-                TriggerClientEvent('QBCore:Notify', src, data.message)
+                QBCore.Functions.Notify(data.message)
             end
         else
             SendNotify(src, data)
